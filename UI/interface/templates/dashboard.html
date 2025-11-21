@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    {% include 'standard/head.html' %}
+</head>
+<body>
+    {% include "standard/navbar.html" %}
+    <div class="w3-container w3-content w3-row w3-center w3-margin-top w3-margin-bottom">
+        <span class="w3-xxlarge"><b>Boswatch UI - Serverübersicht</b></span>
+    </div>
+    <div class="w3-container w3-row">
+        <div class="w3-container w3-row w3-half w3-light-grey">
+
+            <span class="w3-xlarge w3-center"><b>Meta-Daten:</b></span>
+
+            <ul class="w3-ul w3-hoverable">
+                <li class="w3-large w3-center">SERVER</li>
+                <li>Server IP: <span class="w3-right">[SERVER_IP]</span></li>
+                <li>Server Port: <span class="w3-right">[SERVER_PORT]</span></li>
+                <li>Broadcast: <span class="w3-right">[SERVER_BROADCAST]</span></li>
+                <li>Logging: <span class="w3-right">[SERVER_LOGGING]</span></li>
+                <li class="w3-large w3-center">Statistik</li>
+                <li>Uptime: <span class="w3-right">[SERVER_UPTIME]</span></li>
+                <li>Empfangene Telegramme: <span class="w3-right">[STAT_TELEGRAMMS]</span></li>
+            </ul>
+
+        </div>
+    </div>
+</body>
+</html>

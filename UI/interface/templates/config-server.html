@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    {% include 'standard/head.html' %}
+
+    <script src="{% static 'js/blockly_compressed.js' %}"></script>
+    <script src="{% static 'js/blocks_compressed.js' %}"></script>
+    <script src="{% static 'js/msg_en.js' %}"></script>
+    <script src="{% static 'js/blocks_standard.js' %}"></script>
+</head>
+<body>
+    {% include "standard/navbar.html" %}
+    
+    <div id="blocklyDiv" style="height: 600px; width: 100%;"></div>
+  <xml id="toolbox" style="display:none">
+    <category name="Standard">
+    <block type="set_key_value"></block>
+    <block type="server_box"></block>
+    </category>
+    <category name="Routen">
+        <block type="routen"></block>
+        <block type="routen_block"></block>
+    </category>
+    <category name="Module">
+    </category>
+    <category name="Plugins">
+    </category>
+  </xml>
+
+  <textarea id="yamlOutput" style="width:100%;height:200px"></textarea>
+
+  <button onclick="generateYaml()">YAML erzeugen</button>
+
+<script>
+  const workspace = Blockly.inject('blocklyDiv', {
+      toolbox: document.getElementById('toolbox')
+  });
+
+  function generateYaml() {
+      const yaml = Blockly.YAML.workspaceToCode(workspace);
+      document.getElementById("yamlOutput").value = yaml;
+  }
+</script>
+</body>
+</html>
